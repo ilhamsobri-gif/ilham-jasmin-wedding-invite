@@ -12,173 +12,28 @@
             margin: 0;
             padding: 0;
             font-family: 'Lato', sans-serif;
-            background-color: #fcfcfc;
+            
+            /* CHANGED: Background color to Light Pink */
+            background-color: #ffeef2; 
+            
             color: #4a4a4a;
             text-align: center;
             line-height: 1.6;
         }
 
-        /* HERO SECTION WITH BACKGROUND IMAGE */
+        /* HERO SECTION */
         header {
-            /* We use a "linear-gradient" to darken the image slightly 
-               so the white text is easy to read.
-               Replace the URL inside url('') to change the photo later!
-            */
-            background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), 
-                        url('https://images.unsplash.com/photo-1511285560982-1351cdeb9821?q=80&w=2576&auto=format&fit=crop');
-            
-            background-size: cover;       /* Ensures image covers the whole area */
-            background-position: center;  /* Centers the image */
-            padding: 140px 20px;
-            color: white;                 /* Text color changes to white */
+            /* Background Image */
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
+                        url('https://images.unsplash.com/photo-1519225421980-715cb0202128?q=80&w=2600&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+            padding: 100px 20px 140px 20px;
+            color: white;
         }
 
         h1 {
             font-family: 'Playfair Display', serif;
             font-size: 4rem;
             margin-bottom: 10px;
-            margin-top: 10px;
-            letter-spacing: 2px;
-            text-shadow: 2px 2px 8px rgba(0,0,0,0.3); /* Adds shadow to text */
-        }
-
-        .subtitle {
-            font-size: 1.3rem;
-            text-transform: uppercase;
-            letter-spacing: 4px;
-            margin-top: 0;
-            font-weight: 300;
-        }
-
-        /* Details Section */
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 60px 20px;
-        }
-
-        .details-box {
-            border: 2px solid #d4af37; /* Gold border */
-            padding: 40px;
-            margin-top: 30px;
-            display: inline-block;
-            width: 100%;
-            max-width: 500px;
-            background-color: white;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-            border-radius: 8px;
-            box-sizing: border-box;
-        }
-
-        h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: 2rem;
-            color: #d4af37; /* Gold text */
-        }
-
-        .info-text {
-            font-size: 1.3rem;
-            margin: 10px 0;
-        }
-
-        .location {
-            font-weight: bold;
-            color: #2c3e50;
-        }
-
-        /* RSVP Button */
-        .btn {
-            display: inline-block;
-            margin-top: 30px;
-            padding: 15px 30px;
-            background-color: #2c3e50;
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-            font-weight: bold;
-            transition: background 0.3s;
-        }
-
-        .btn:hover {
-            background-color: #d4af37; /* Turns gold on hover */
-            color: white;
-        }
-
-        /* Map Section */
-        .map-container {
-            margin-top: 50px;
-            height: 400px;
-            width: 100%;
-            background-color: #eee;
-        }
-        
-        iframe {
-            width: 100%;
-            height: 100%;
-            border: 0;
-        }
-
-        /* Footer */
-        footer {
-            margin-top: 50px;
-            padding: 30px;
-            background-color: #f4f1ea;
-            font-size: 0.9rem;
-            color: #666;
-        }
-
-        /* Mobile Adjustments */
-        @media (max-width: 600px) {
-            h1 { font-size: 2.8rem; }
-            header { padding: 100px 20px; }
-            .details-box { padding: 25px; }
-        }
-    </style>
-</head>
-<body>
-
-    <header>
-        <p class="subtitle">Save The Date</p>
-        <h1>Ilham & Jasmin</h1>
-        <p class="subtitle">28 . 06 . 2026</p>
-    </header>
-
-    <div class="container">
-        <p style="font-size: 1.1rem;">We invite you to join us in celebrating our love.</p>
-
-        <div class="details-box">
-            <h2>The Wedding</h2>
-            
-            <p class="info-text">
-                Sunday, <strong>28 June 2026</strong>
-            </p>
-            
-            <hr style="width: 50px; border: 1px solid #ddd;">
-            
-            <p class="info-text location">
-                Kuching, Sarawak
-            </p>
-            
-            <p style="font-size: 0.9rem; color: #666;">
-                Formal Invitation to Follow
-            </p>
-        </div>
-
-        <br>
-        <a href="#" class="btn">RSVP Here</a>
-    </div>
-
-    <div class="map-container">
-        <iframe 
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d255057.49842858804!2d110.23126868953163!3d1.557434552077978!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31fba6c034d63309%3A0x6284f18076993883!2sKuching%2C%20Sarawak%2C%20Malaysia!5e0!3m2!1sen!2s!4v1700000000000!5m2!1sen!2s" 
-            allowfullscreen="" loading="lazy">
-        </iframe>
-    </div>
-
-    <footer>
-        <p>#IlhamAndJasmin2026</p>
-        <p>Made with love in Sarawak</p>
-    </footer>
-
-</body>
-</html>
+            margin-top: 10
