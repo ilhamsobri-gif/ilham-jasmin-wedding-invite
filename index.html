@@ -202,4 +202,151 @@
         @media (max-width: 600px) {
             h1 { font-size: 2.5rem; }
             #timer { gap: 10px; }
-            .time-box { min-width: 50px; padding: 1
+            .time-box { min-width: 50px; padding: 10px; }
+            .time-number { font-size: 1.5rem; }
+            .white-box { padding: 25px; }
+            .details-box { margin-top: -30px;}
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <p class="subtitle">Save The Date</p>
+        <h1>Ilham & Jasmin</h1>
+        <p class="subtitle">28 June 2026</p>
+
+        <div id="timer">
+            <div class="time-box">
+                <span class="time-number" id="days">0</span>
+                <span class="time-label">Days</span>
+            </div>
+            <div class="time-box">
+                <span class="time-number" id="hours">0</span>
+                <span class="time-label">Hours</span>
+            </div>
+            <div class="time-box">
+                <span class="time-number" id="minutes">0</span>
+                <span class="time-label">Mins</span>
+            </div>
+            <div class="time-box">
+                <span class="time-number" id="seconds">0</span>
+                <span class="time-label">Secs</span>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        
+        <div class="white-box details-box">
+            <h2>The Wedding Celebration</h2>
+            
+            <p class="info-text">
+                Sunday, <strong>28 June 2026</strong>
+            </p>
+            
+            <hr style="width: 50px; border: 1px solid #eebbc3; margin: 20px auto;">
+            
+            <p class="info-text location">
+                Kuching, Sarawak
+            </p>
+            
+            <p style="font-size: 0.9rem; color: #666; margin-bottom: 30px;">
+                We can't wait to celebrate our special day with you!
+            </p>
+
+            <a href="https://forms.gle/XSHFJ9k2bdQSEowu9" class="btn" target="_blank">RSVP NOW</a>
+        </div>
+
+        <div class="white-box gift-box">
+            <h3>Wedding Gift</h3>
+            <p>Your presence is the best gift we could ask for.</p>
+            <p style="font-size: 0.9rem;">However, if you wish to offer a token of love, you may do so here:</p>
+            
+            <img src="qrcode.jpg">
+            
+            <br>
+            
+            <div class="bank-details">
+                <strong>Maybank / DuitNow</strong><br>
+                Ilham & Jasmin<br>
+                Thank you <3
+            </div>
+        </div>
+
+        <div class="white-box wishes-box">
+            <h3>Send Your Love</h3>
+            <p><i class="fas fa-heart" style="color: #eebbc3; font-size: 2rem;"></i></p>
+            <p>Send your prayers and warm wishes to the bride & groom.</p>
+            
+            <a href="https://forms.gle/XSHFJ9k2bdQSEowu9" class="btn" target="_blank">Write a Wish</a>
+        </div>
+
+    </div>
+
+    <div class="map-container">
+        <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d255281.2242858102!2d110.20627582531065!3d1.536735703889076!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31fba85f7f52550d%3A0x62953504369e5d4a!2sKuching%2C%20Sarawak%2C%20Malaysia!5e0!3m2!1sen!2s!4v1700000000000!5m2!1sen!2s" 
+            allowfullscreen="" loading="lazy">
+        </iframe>
+    </div>
+
+    <footer>
+        <p>#IlhamuntukJasmin <3</p>
+        <p>Made with love</p>
+    </footer>
+
+    <audio id="bg-music" loop>
+        <source src="song.mp3" type="audio/mpeg">
+    </audio>
+
+    <div class="music-control" onclick="toggleMusic()">
+        <span id="music-icon">🎵</span>
+    </div>
+
+    <script>
+        // --- COUNTDOWN TIMER ---
+        var countDownDate = new Date("June 28, 2026 00:00:00").getTime();
+        var x = setInterval(function() {
+            var now = new Date().getTime();
+            var distance = countDownDate - now;
+            var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+            
+            document.getElementById("days").innerHTML = days;
+            document.getElementById("hours").innerHTML = hours;
+            document.getElementById("minutes").innerHTML = minutes;
+            document.getElementById("seconds").innerHTML = seconds;
+            
+            if (distance < 0) {
+                clearInterval(x);
+                document.getElementById("timer").innerHTML = "HAPPILY MARRIED!";
+            }
+        }, 1000);
+
+        // --- MUSIC PLAYER LOGIC ---
+        var music = document.getElementById("bg-music");
+        var icon = document.getElementById("music-icon");
+        var isPlaying = false;
+
+        function toggleMusic() {
+            if (isPlaying) {
+                music.pause();
+                icon.innerHTML = "🔇"; 
+                isPlaying = false;
+            } else {
+                music.play();
+                icon.innerHTML = "🎵"; 
+                isPlaying = true;
+            }
+        }
+        
+        window.onload = function() {
+             music.volume = 0.5;
+        };
+    </script>
+
+</body>
+</html>
