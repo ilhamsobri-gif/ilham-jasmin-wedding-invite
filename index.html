@@ -17,6 +17,53 @@
             color: #4a4a4a;
             text-align: center;
             line-height: 1.6;
+            overflow-x: hidden; /* Prevent horizontal scroll */
+        }
+
+        /* --- WELCOME OVERLAY (NEW) --- */
+        #welcome-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #ffeef2;
+            z-index: 9999;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            transition: opacity 1s ease-out;
+        }
+
+        .welcome-content {
+            text-align: center;
+            animation: fadeIn 2s;
+        }
+
+        .open-btn {
+            background-color: #2c3e50;
+            color: white;
+            padding: 15px 40px;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            border: none;
+            margin-top: 20px;
+            font-family: 'Playfair Display', serif;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
+            40% {transform: translateY(-10px);}
+            60% {transform: translateY(-5px);}
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
         }
 
         /* HERO SECTION */
@@ -211,90 +258,104 @@
 </head>
 <body>
 
-    <header>
-        <p class="subtitle">Save The Date</p>
-        <h1>Ilham & Jasmin</h1>
-        <p class="subtitle">28 June 2026</p>
-
-        <div id="timer">
-            <div class="time-box">
-                <span class="time-number" id="days">0</span>
-                <span class="time-label">Days</span>
-            </div>
-            <div class="time-box">
-                <span class="time-number" id="hours">0</span>
-                <span class="time-label">Hours</span>
-            </div>
-            <div class="time-box">
-                <span class="time-number" id="minutes">0</span>
-                <span class="time-label">Mins</span>
-            </div>
-            <div class="time-box">
-                <span class="time-number" id="seconds">0</span>
-                <span class="time-label">Secs</span>
-            </div>
+    <div id="welcome-screen">
+        <div class="welcome-content">
+            <h1 style="color: #2c3e50; font-size: 3rem;">Ilham & Jasmin</h1>
+            <p style="letter-spacing: 2px;">THE WEDDING INVITATION</p>
+            <button class="open-btn" onclick="enterSite()">Open Invitation <i class="fas fa-envelope-open"></i></button>
         </div>
-    </header>
-
-    <div class="container">
-        
-        <div class="white-box details-box">
-            <h2>The Wedding Celebration</h2>
-            
-            <p class="info-text">
-                Sunday, <strong>28 June 2026</strong>
-            </p>
-            
-            <hr style="width: 50px; border: 1px solid #eebbc3; margin: 20px auto;">
-            
-            <p class="info-text location">
-                Kuching, Sarawak
-            </p>
-            
-            <p style="font-size: 0.9rem; color: #666; margin-bottom: 30px;">
-                We can't wait to celebrate our special day with you!
-            </p>
-
-            <a href="https://forms.gle/XSHFJ9k2bdQSEowu9" class="btn" target="_blank">RSVP NOW</a>
-        </div>
-
-        <div class="white-box gift-box">
-            <h3>Wedding Gift</h3>
-            <p>Your presence is the best gift we could ask for.</p>
-            <p style="font-size: 0.9rem;">However, if you wish to offer a token of love, you may do so here:</p>
-            
-            <img src="qrcode.jpg" alt="DuitNow QR" class="qr-img">
-            
-            <br>
-            
-            <div class="bank-details">
-                <strong>Maybank / DuitNow</strong><br>
-                Ilham & Jasmin<br>
-                Thank you <i class="fas fa-heart" style="color: #eebbc3;"></i>
-            </div>
-        </div>
-
-        <div class="white-box wishes-box">
-            <h3>Send Your Love</h3>
-            <p><i class="fas fa-heart" style="color: #eebbc3; font-size: 2rem;"></i></p>
-            <p>Send your prayers and warm wishes to the bride & groom.</p>
-            
-            <a href="https://forms.gle/ngFkjhZvR27pWVDA9" class="btn" target="_blank">Write a Wish</a>
-        </div>
-
     </div>
 
-    <div class="map-container">
-        <iframe 
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d255281.2242858102!2d110.20627582531065!3d1.536735703889076!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31fba85f7f52550d%3A0x62953504369e5d4a!2sKuching%2C%20Sarawak%2C%20Malaysia!5e0!3m2!1sen!2s!4v1700000000000!5m2!1sen!2s" 
-            allowfullscreen="" loading="lazy">
-        </iframe>
-    </div>
+    <div id="main-content">
+        <header>
+            <p class="subtitle">Save The Date</p>
+            <h1>Ilham & Jasmin</h1>
+            <p class="subtitle">28 June 2026</p>
 
-    <footer>
-        <p>#IlhamuntukJasmin <i class="fas fa-heart" style="color: #eebbc3;"></i></p>
-        <p>Made with love</p>
-    </footer>
+            <div id="timer">
+                <div class="time-box">
+                    <span class="time-number" id="days">0</span>
+                    <span class="time-label">Days</span>
+                </div>
+                <div class="time-box">
+                    <span class="time-number" id="hours">0</span>
+                    <span class="time-label">Hours</span>
+                </div>
+                <div class="time-box">
+                    <span class="time-number" id="minutes">0</span>
+                    <span class="time-label">Mins</span>
+                </div>
+                <div class="time-box">
+                    <span class="time-number" id="seconds">0</span>
+                    <span class="time-label">Secs</span>
+                </div>
+            </div>
+        </header>
+
+        <div class="container">
+            
+            <div class="white-box details-box">
+                <h2>The Wedding Celebration</h2>
+                
+                <p class="info-text">
+                    Sunday, <strong>28 June 2026</strong>
+                </p>
+                
+                <hr style="width: 50px; border: 1px solid #eebbc3; margin: 20px auto;">
+                
+                <p class="info-text location">
+                    Kuching, Sarawak
+                </p>
+                
+                <p style="font-size: 0.9rem; color: #666; margin-bottom: 30px;">
+                    We can't wait to celebrate our special day with you!
+                </p>
+
+                <a href="https://forms.gle/XSHFJ9k2bdQSEowu9" class="btn" target="_blank">RSVP NOW</a>
+            </div>
+
+            <div class="white-box gift-box">
+                <h3>Wedding Gift</h3>
+                <p>Your presence is the best gift we could ask for.</p>
+                <p style="font-size: 0.9rem;">However, if you wish to offer a token of love, you may do so here:</p>
+                
+                <div style="background-color: #1a1a1a; display: inline-block; padding: 20px; border-radius: 10px; margin-top: 15px;">
+                    <img src="qrcode.jpg?v=2" alt="DuitNow QR" class="qr-img" style="border: none; margin: 0;">
+                    <br>
+                    <span style="color: white; font-size: 0.8rem; letter-spacing: 1px;">DUITNOW QR</span>
+                </div>
+                
+                <br><br>
+                
+                <div class="bank-details">
+                    <strong>Maybank / DuitNow</strong><br>
+                    Ilham & Jasmin<br>
+                    Thank you <i class="fas fa-heart" style="color: #eebbc3;"></i>
+                </div>
+            </div>
+
+            <div class="white-box wishes-box">
+                <h3>Send Your Love</h3>
+                <p><i class="fas fa-heart" style="color: #eebbc3; font-size: 2rem;"></i></p>
+                <p>Send your prayers and warm wishes to the bride & groom.</p>
+                
+                <a href="https://forms.gle/ngFkjhZvR27pWVDA9" class="btn" target="_blank">Write a Wish</a>
+            </div>
+
+        </div>
+
+        <div class="map-container">
+            <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d255281.2242858102!2d110.20627582531065!3d1.536735703889076!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31fba85f7f52550d%3A0x62953504369e5d4a!2sKuching%2C%20Sarawak%2C%20Malaysia!5e0!3m2!1sen!2s!4v1700000000000!5m2!1sen!2s" 
+                allowfullscreen="" loading="lazy">
+            </iframe>
+        </div>
+
+        <footer>
+            <p>#IlhamuntukJasmin <i class="fas fa-heart" style="color: #eebbc3;"></i></p>
+            <p>Made with love</p>
+        </footer>
+    </div>
 
     <audio id="bg-music" loop>
         <source src="song.mp3" type="audio/mpeg">
@@ -305,6 +366,28 @@
     </div>
 
     <script>
+        // --- WELCOME SCREEN LOGIC ---
+        function enterSite() {
+            // 1. Hide the welcome screen
+            var welcomeScreen = document.getElementById('welcome-screen');
+            welcomeScreen.style.opacity = '0';
+            
+            // 2. Play the music (Browsers allow this because the user clicked a button!)
+            var music = document.getElementById("bg-music");
+            music.play().then(() => {
+                // Music started successfully
+                document.getElementById("music-icon").innerHTML = "🎵";
+                isPlaying = true;
+            }).catch(error => {
+                console.log("Music play failed (usually browser policy):", error);
+            });
+
+            // 3. Remove the screen from DOM after fade out
+            setTimeout(function() {
+                welcomeScreen.style.display = 'none';
+            }, 1000);
+        }
+
         // --- COUNTDOWN TIMER ---
         var countDownDate = new Date("June 28, 2026 00:00:00").getTime();
         var x = setInterval(function() {
@@ -342,12 +425,7 @@
                 isPlaying = true;
             }
         }
-        
-        window.onload = function() {
-             music.volume = 0.5;
-        };
     </script>
 
 </body>
 </html>
-
