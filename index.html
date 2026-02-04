@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Ilham & Jasmin's Wedding</title>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -14,18 +14,19 @@
             padding: 0;
             font-family: 'Lato', sans-serif;
             
-            /* BACKGROUND: Pink Floral Theme */
+            /* BACKGROUND: Reliable Pink Floral Theme */
             background-color: #ffeef2;
-            background-image: url('https://images.unsplash.com/photo-1508193638397-1c4234db14d8?q=80&w=2500&auto=format&fit=crop');
+            /* Using a highly reliable floral pattern source */
+            background-image: url('https://img.freepik.com/free-photo/pink-flowers-pink-background_23-2148114099.jpg?w=1060&t=st=1708400000~exp=1708400600~hmac=abcd');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
-            background-blend-mode: overlay;
             
             color: #4a4a4a;
             text-align: center;
             line-height: 1.6;
-            overflow-x: hidden;
+            width: 100%;
+            overflow-x: hidden; /* Fixes mobile side-scrolling issues */
         }
 
         /* WELCOME OVERLAY */
@@ -54,5 +55,239 @@
         .subtitle { font-size: 1.3rem; text-transform: uppercase; letter-spacing: 4px; font-weight: 300; }
 
         /* TIMER */
-        #timer { margin-top: 40px; display: flex; justify-content: center; gap: 20px; font-family: 'Playfair Display', serif; }
-        .time-box { background: rgba(255, 255, 255, 0.2); padding: 15px; border-radius: 8px; min-width: 70px; backdrop-filter: blur(5px); border: 1px solid rgba(255,255,255
+        #timer { margin-top: 40px; display: flex; justify-content: center; gap: 20px; font-family: 'Playfair Display', serif; flex-wrap: wrap; }
+        .time-box { background: rgba(255, 255, 255, 0.2); padding: 15px; border-radius: 8px; min-width: 60px; backdrop-filter: blur(5px); border: 1px solid rgba(255,255,255,0.3); }
+        .time-number { font-size: 1.8rem; font-weight: bold; display: block; }
+        .time-label { font-size: 0.8rem; text-transform: uppercase; }
+
+        /* CONTAINER */
+        .container { 
+            max-width: 800px; 
+            margin: 0 auto; 
+            padding: 40px 15px; /* Adjusted padding for mobile */
+            box-sizing: border-box; /* Ensures padding doesn't widen width */
+        }
+        
+        .white-box {
+            background-color: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1); border-radius: 8px;
+            padding: 40px; margin-bottom: 30px; position: relative;
+            width: 100%;
+            box-sizing: border-box; /* Crucial for mobile centering */
+        }
+        
+        .details-box { border: 2px solid #eebbc3; margin-top: -50px; }
+        .gift-box { border: 1px dashed #d4af37; }
+
+        h2, h3 { font-family: 'Playfair Display', serif; color: #d4af37; margin-top: 0; }
+        h2 { font-size: 2.2rem; } h3 { font-size: 1.8rem; }
+        
+        .btn {
+            display: inline-block; margin-top: 20px; padding: 15px 35px;
+            background-color: #2c3e50; color: white; text-decoration: none;
+            border-radius: 50px; font-weight: bold; transition: transform 0.2s, background 0.3s;
+        }
+        .btn:hover { background-color: #d4af37; transform: translateY(-2px); }
+
+        .qr-img { width: 200px; height: auto; margin: 0; display: block; }
+        .bank-details { font-size: 0.9rem; color: #666; background: #f9f9f9; padding: 15px; border-radius: 5px; display: inline-block; }
+
+        /* WISHES STYLES */
+        .wishes-container { border: 2px solid #eebbc3; text-align: left; }
+        .wishes-header { text-align: center; } 
+        
+        .wishes-list {
+            height: 300px; overflow-y: auto; border: 1px solid #eee;
+            padding: 15px; margin-bottom: 20px; background: #fff; border-radius: 5px;
+        }
+        .wish-item { border-bottom: 1px solid #f0f0f0; padding: 10px 0; animation: fadeIn 0.5s; }
+        .wish-name { font-weight: bold; color: #d4af37; font-family: 'Playfair Display', serif; font-size: 1.1rem; }
+        .wish-text { font-size: 0.95rem; color: #555; margin-top: 5px; }
+        .loading-text { text-align: center; color: #999; padding: 20px; font-style: italic;}
+
+        /* FOOTER & MAP */
+        .map-container { margin-top: 30px; height: 400px; width: 100%; background-color: #eee; }
+        iframe { width: 100%; height: 100%; border: 0; }
+        footer { padding: 40px; background-color: rgba(255, 238, 242, 0.9); color: #888; font-size: 0.9rem; }
+
+        /* MUSIC BUTTON */
+        .music-control {
+            position: fixed; bottom: 20px; right: 20px; background-color: #fff;
+            width: 50px; height: 50px; border-radius: 50%; box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            display: flex; align-items: center; justify-content: center; cursor: pointer;
+            z-index: 1000; font-size: 24px; border: 2px solid #eebbc3; animation: pulse 2s infinite;
+        }
+        @keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.05); } 100% { transform: scale(1); } }
+        
+        /* MOBILE ADJUSTMENTS */
+        @media (max-width: 600px) { 
+            h1 { font-size: 2.5rem; } 
+            .white-box { padding: 20px; } 
+            .details-box { margin-top: -30px;} 
+            .time-box { min-width: 50px; padding: 10px; }
+            .time-number { font-size: 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <div id="welcome-screen">
+        <div class="welcome-content">
+            <h1 style="color: #2c3e50; font-size: 3rem;">Ilham & Jasmin</h1>
+            <p style="letter-spacing: 2px;">THE WEDDING INVITATION</p>
+            <button class="open-btn" onclick="enterSite()">Open Invitation <i class="fas fa-envelope-open"></i></button>
+        </div>
+    </div>
+
+    <div id="main-content">
+        <header>
+            <p class="subtitle">Save The Date</p>
+            <h1>Ilham & Jasmin</h1>
+            <p class="subtitle">28 June 2026</p>
+            <div id="timer">
+                <div class="time-box"><span class="time-number" id="days">0</span><span class="time-label">Days</span></div>
+                <div class="time-box"><span class="time-number" id="hours">0</span><span class="time-label">Hours</span></div>
+                <div class="time-box"><span class="time-number" id="minutes">0</span><span class="time-label">Mins</span></div>
+                <div class="time-box"><span class="time-number" id="seconds">0</span><span class="time-label">Secs</span></div>
+            </div>
+        </header>
+
+        <div class="container">
+            <div class="white-box details-box">
+                <h2>The Wedding Celebration</h2>
+                <p class="info-text">Sunday, <strong>28 June 2026</strong></p>
+                <hr style="width: 50px; border: 1px solid #eebbc3; margin: 20px auto;">
+                <p class="info-text location">Kuching, Sarawak</p>
+                <p style="font-size: 0.9rem; color: #666; margin-bottom: 30px;">We can't wait to celebrate our special day with you!</p>
+                <a href="https://forms.gle/XSHFJ9k2bdQSEowu9" class="btn" target="_blank">RSVP NOW</a>
+            </div>
+
+            <div class="white-box gift-box">
+                <h3>Wedding Gift</h3>
+                <p>Your presence is the best gift we could ask for.</p>
+                <p style="font-size: 0.9rem;">However, if you wish to offer a token of love, you may do so here:</p>
+                
+                <div style="background-color: #ffffff; display: inline-block; padding: 10px; border-radius: 10px; margin-top: 15px;">
+                    <img src="qrcode.jpg?v=5" alt="DuitNow QR" class="qr-img">
+                </div>
+                
+                <br><br>
+                <div class="bank-details">
+                    <strong>Maybank / DuitNow</strong><br>
+                    Ilham & Jasmin<br>
+                    Thank you <i class="fas fa-heart" style="color: #eebbc3;"></i>
+                </div>
+            </div>
+
+            <div class="white-box wishes-container">
+                <div class="wishes-header">
+                    <h3>Send Your Love</h3>
+                    <p><i class="fas fa-heart" style="color: #eebbc3; font-size: 2rem;"></i></p>
+                </div>
+                
+                <p style="font-size: 0.9rem; margin-bottom: 20px; text-align: center;">Wishes from our lovely guests:</p>
+                
+                <div class="wishes-list" id="wishes-list">
+                    <div class="loading-text">Loading wishes...</div>
+                </div>
+
+                <div style="text-align: center;">
+                    <a href="https://docs.google.com/forms/d/1k_qCxFeFkN6QaUdN3GoAKzi0DDfrs5B6TBWCBgjTqFc/viewform" class="btn" target="_blank" style="margin-top: 10px;">Write a Wish</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="map-container">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d255281.2242858102!2d110.20627582531065!3d1.536735703889076!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31fba85f7f52550d%3A0x62953504369e5d4a!2sKuching%2C%20Sarawak%2C%20Malaysia!5e0!3m2!1sen!2s!4v1700000000000!5m2!1sen!2s" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+
+        <footer>
+            <p>#IlhamuntukJasmin <i class="fas fa-heart" style="color: #eebbc3;"></i></p>
+            <p>Made with love</p>
+        </footer>
+    </div>
+
+    <audio id="bg-music" loop><source src="song.mp3" type="audio/mpeg"></audio>
+    <div class="music-control" onclick="toggleMusic()"><span id="music-icon">🎵</span></div>
+
+    <script>
+        // --- GOOGLE SHEET WISHES LOGIC ---
+        var sheetLink = "https://docs.google.com/spreadsheets/d/e/2PACX-1vT6Q18WuHZNNGfr7Opx7tyjEtjKKgOuaumIjFCNPZQjcmXCrB9HOdg-As6PLmQA3q1oTWERr_rca0ZE/pub?gid=1820886142&single=true&output=csv"; 
+
+        async function fetchWishes() {
+            try {
+                const response = await fetch(sheetLink);
+                const data = await response.text();
+                const rows = data.split("\n").filter(row => row.trim().length > 0).slice(1); 
+                
+                const list = document.getElementById('wishes-list');
+                list.innerHTML = ""; 
+
+                if (rows.length === 0) {
+                    list.innerHTML = '<div class="loading-text">No wishes yet. Be the first to write one!</div>';
+                    return;
+                }
+
+                rows.reverse().forEach(row => {
+                    const cols = row.split(",");
+                    if(cols.length >= 3) {
+                        var name = cols[1].replace(/"/g, "").trim();
+                        var msg = cols.slice(2).join(",").replace(/"/g, "").trim();
+                        if(name && msg) {
+                            var newItem = document.createElement('div');
+                            newItem.className = 'wish-item';
+                            newItem.innerHTML = `<div class="wish-name">${name}</div><div class="wish-text">${msg}</div>`;
+                            list.appendChild(newItem);
+                        }
+                    }
+                });
+            } catch (error) {
+                console.log("Error fetching wishes:", error);
+                document.getElementById('wishes-list').innerHTML = '<div class="loading-text">Unable to load wishes.</div>';
+            }
+        }
+        
+        window.onload = function() {
+            var music = document.getElementById("bg-music");
+            music.volume = 0.5;
+            fetchWishes();
+        };
+
+        // --- WELCOME & MUSIC ---
+        function enterSite() {
+            var welcomeScreen = document.getElementById('welcome-screen');
+            welcomeScreen.style.opacity = '0';
+            var music = document.getElementById("bg-music");
+            music.play().then(() => {
+                document.getElementById("music-icon").innerHTML = "🎵";
+                isPlaying = true;
+            }).catch(e => console.log(e));
+            setTimeout(() => { welcomeScreen.style.display = 'none'; }, 1000);
+        }
+
+        // --- COUNTDOWN ---
+        var countDownDate = new Date("June 28, 2026 00:00:00").getTime();
+        var x = setInterval(function() {
+            var now = new Date().getTime();
+            var distance = countDownDate - now;
+            var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+            document.getElementById("days").innerHTML = days;
+            document.getElementById("hours").innerHTML = hours;
+            document.getElementById("minutes").innerHTML = minutes;
+            document.getElementById("seconds").innerHTML = seconds;
+        }, 1000);
+
+        // --- MUSIC TOGGLE ---
+        var music = document.getElementById("bg-music");
+        var icon = document.getElementById("music-icon");
+        var isPlaying = false;
+        function toggleMusic() {
+            if (isPlaying) { music.pause(); icon.innerHTML = "🔇"; isPlaying = false; }
+            else { music.play(); icon.innerHTML = "🎵"; isPlaying = true; }
+        }
+    </script>
+</body>
+</html>
