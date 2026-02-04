@@ -14,9 +14,8 @@
             padding: 0;
             font-family: 'Lato', sans-serif;
             
-            /* BACKGROUND FOR MAIN WEBSITE: The Floral Archway */
+            /* BACKGROUND FOR MAIN WEBSITE */
             background-color: #ffeef2; /* Fallback color */
-            /* This points to your main background image */
             background-image: url('background.png');
             background-size: cover;
             background-position: center;
@@ -29,13 +28,12 @@
             overflow-x: hidden; /* Fixes mobile side-scrolling issues */
         }
 
-        /* WELCOME OVERLAY - NOW WITH ITS OWN BACKGROUND */
+        /* WELCOME OVERLAY */
         #welcome-screen {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
             background-color: #ffeef2; /* Fallback color */
             
-            /* BACKGROUND FOR WELCOME SCREEN: The new image */
-            /* Make sure you uploaded this image as welcome-bg.png */
+            /* BACKGROUND FOR WELCOME SCREEN */
             background-image: url('welcome-bg.png'); 
             background-size: cover;
             background-position: center;
@@ -45,7 +43,6 @@
             transition: opacity 1s ease-out;
         }
         
-        /* Added a semi-transparent dark overlay to make text readable on the welcome image */
         .welcome-content {
             background-color: rgba(0, 0, 0, 0.4); /* Dark overlay */
             padding: 40px;
@@ -55,7 +52,6 @@
             animation: fadeIn 2s;
         }
         
-        /* Override h1 style specifically for welcome screen */
         #welcome-screen h1 {
             color: white;
             text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
@@ -63,7 +59,7 @@
         }
 
         .open-btn {
-            background-color: #eebbc3; /* Light pink button to pop against dark overlay */
+            background-color: #eebbc3; /* Light pink button */
             color: #2c3e50; /* Dark text */
             padding: 15px 40px;
             border-radius: 50px; font-size: 1.2rem; cursor: pointer; border: none;
@@ -131,7 +127,16 @@
             padding: 15px; margin-bottom: 20px; background: #fff; border-radius: 5px;
         }
         .wish-item { border-bottom: 1px solid #f0f0f0; padding: 10px 0; animation: fadeIn 0.5s; }
-        .wish-name { font-weight: bold; color: #d4af37; font-family: 'Playfair Display', serif; font-size: 1.1rem; }
+        
+        /* --- WISH NAME COLOR CHANGED HERE --- */
+        .wish-name { 
+            font-weight: bold; 
+            /* Changed from #d4af37 (gold) to #2c3e50 (dark blue) */
+            color: #2c3e50; 
+            font-family: 'Playfair Display', serif; 
+            font-size: 1.1rem; 
+        }
+        
         .wish-text { font-size: 0.95rem; color: #555; margin-top: 5px; }
         .loading-text { text-align: center; color: #999; padding: 20px; font-style: italic;}
 
@@ -322,4 +327,3 @@
     </script>
 </body>
 </html>
-
